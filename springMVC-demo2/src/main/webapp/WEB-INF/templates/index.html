@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Test1</title>
+</head>
+<body>
+    <p>首頁測試</p>
+    <a th:href="@{/hello/testRequestMapping}">測試RequestMapping註解位置</a><br>
+    <form th:action="@{/test}" method="post">
+        <input type="submit" value="測試method屬性 --> POST">
+    </form>
+    <a th:href="@{/hello/getmap}">測試GetMapping註解--> getmap</a><br>
+    <form th:action="@{/hello/testPut}" method="put">
+        <input type="submit" value="測試form表單是否能夠發送PUT或DELETE請求">
+    </form>
+    <br>
+    <a th:href="@{/hello/testParamsAndHeaders?(username='admin',password='12356')}">測試RequestMapping註解的params屬性</a><br>
+    <a th:href="@{/hello/a1a/testAnt?(username='admin',password='12356')}">測試RequestMapping可以配對ant風格的路徑-->使用?</a><br>
+    <a th:href="@{/hello/a1a/testAnt?(username='admin',password='12356')}">測試RequestMapping可以配對ant風格的路徑-->使用*</a><br>
+    <a th:href="@{/testPath/1/admin}">測試RequestMapping可以配對使用{}配對參數-->{ }</a><br>
+</body>
+</html>

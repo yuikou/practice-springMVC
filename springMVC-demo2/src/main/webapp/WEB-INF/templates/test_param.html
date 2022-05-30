@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>測試請求參數</title>
+</head>
+<body>
+<h1>測試請求參數</h1>
+<a th:href="@{/testServletAPI(username='admin',password=123456)}">測試使用servletAPI獲取請求參數</a><br>
+<a th:href="@{/testParam(username='Alice',password=456)}">測試使用Controller參數獲取請求參數</a><br>
+<form th:action="@{/testParam}" method="post">
+    姓名<input name="user_name" type="text">
+    密碼<input name="password" type="password">
+    興趣<input name="hobbies" type="checkbox" value="a">a
+    <input name="hobbies" type="checkbox" value="b">b
+    <input name="hobbies" type="checkbox" value="c">c
+    <input type="submit">
+</form>
+<h2>POJO</h2>
+<form th:action="@{/testPOJO}" method="post">
+    user<input type="text" name="username"><br>
+    pw<input type="password" name="password"><br>
+    age<input type="text" name="age"><br>
+    email<input type="text" name="email"><br>
+    gender<input type="radio" name="gender" value="男">男
+    <input type="radio" name="gender" value="女">女
+    <input type="submit" value="使用實體類接收請求參數">
+</form>
+</body>
+</html>

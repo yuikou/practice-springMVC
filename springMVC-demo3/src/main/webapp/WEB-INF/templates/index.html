@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>homepage</h1>
+<a th:href="@{/testRequestScopeServletAPI}">通過servlet api向request scope對象共享數據</a><br>
+<a th:href="@{/testModelAndView}">通過SpringMVC的model and view向request scope對象共享數據</a><br>
+<a th:href="@{/testModel}">通過SpringMVC的 model 向request scope對象共享數據</a><br>
+<a th:href="@{/testMap}">通過map 向request scope對象共享數據</a><br>
+<a th:href="@{/testModelMap}">通過Modelmap 向request scope對象共享數據</a><br>
+<a th:href="@{/testSession}">透過servlet api向session scope對象共享數據</a><br>
+<a th:href="@{/testApplication}">透過servlet api向application scope對象共享數據</a><br>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>test rest</title>
+</head>
+<body>
+<h1>Test rest</h1>
+<a th:href="@{/user}">查詢所有user</a><br>
+<a th:href="@{/user/1}">查詢單一user</a><br>
+<form th:action="@{/user}" method="post">
+    名稱<input type="text" name="username"><br>
+    敘述<input type="text" name="description"><br>
+    <input type="submit" value="新增"><br>
+</form>
+
+<h3>update</h3>
+<form th:action="@{/user}" method="post">
+    <input type="hidden" name="_method" value="put">
+    名稱<input type="text" name="username"><br>
+    敘述<input type="text" name="description"><br>
+    <input type="submit" value="update"><br>
+</form>
+</body>
+</html>

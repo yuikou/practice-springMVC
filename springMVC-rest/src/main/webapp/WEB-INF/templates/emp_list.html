@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>EMP LIST</title>
+</head>
+<body>
+    <table id="dataTable" border="1" cellpadding="2" cellspacing="2" style="text-align: center">
+        <tr>
+            <th colspan="5">Employee Info</th>
+        </tr>
+        <tr>
+            <th>id</th>
+            <th>last name</th>
+            <th>email</th>
+            <th>gender</th>
+            <th>options (<a th:href="@{/toAdd}"> add</a> )</th>
+        </tr>
+        <tr th:each="employee:${empList}">
+            <td th:text="${employee.id}"></td>
+            <td th:text="${employee.lastname}"></td>
+            <td th:text="${employee.email}"></td>
+            <td th:text="${employee.gender}"></td>
+            <td>
+                <a @click="deleteEmp" th:href="@{/employee/}+${employee.id}">Delete</a><br>
+<!--                <a th:href="@{'/employee/'+${employee.id}}">Delete這樣也可以</a><br>-->
+                <a th:href="@{'/employee/'+${employee.id}}">Update</a>
+<!--                傳送要修改的ID-->
+            </td>
+        </tr>
+    </table>
+
+    <form id="deleteForm" method="post">
+        <input type="hidden" name="_method" value="delete">
+    </form>
+
+    <script type="text/javascript" th:src="@{/static/js/vue.js}"></script>
+    <script type="text/javascript">
+        var vue = new Vue({
+            el: '#dataTable',
+            methods: {
+                deleteEmp: function (event){
+                    var deleteFrom = document.getElementById("deleteForm");
+                    // 當超連結的點擊事件被觸發時, 取得target(超連結)的href屬性的值, 將其賦值給deleteForm的action屬性
+                    deleteFrom.action = event.target.href;
+                    deleteFrom.submit();
+
+                    // 取消超連結的預設行為(跳轉頁面)
+                    event.preventDefault();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
