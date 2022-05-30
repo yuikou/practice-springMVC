@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
+
+    <!--    掃描組件-->
+    <context:component-scan base-package="com.atguigu.mvc.controller"></context:component-scan>
+
+    <!--    配置Thymeleaf視圖解析器(View層)-->
+    <bean id="viewResolver" class="org.thymeleaf.spring5.view.ThymeleafViewResolver">
+    <!--        view resolver的優先級-->
+        <property name="order" value="1" />
+        <property name="characterEncoding" value="UTF-8" />
+        <property name="templateEngine">
+            <bean class="org.thymeleaf.spring5.SpringTemplateEngine">
+                <property name="templateResolver">
+                    <bean class="org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver">
+                        <!--視圖前綴-->
+                        <property name="prefix" value="/WEB-INF/templates/" />
+                        <!-- 後綴-->
+                        <property name="suffix" value=".html" />
+                        <property name="templateMode" value="HTML5" />
+                        <property name="characterEncoding" value="UTF-8" />
+                    </bean>
+                </property>
+            </bean>
+        </property>
+
+    </bean>
+</beans>
+
+
