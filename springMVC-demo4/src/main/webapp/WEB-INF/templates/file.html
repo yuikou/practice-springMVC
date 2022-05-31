@@ -5,6 +5,10 @@
     <title>測試文件上傳和下載</title>
 </head>
 <body>
-<a th:href="@{/testDown}">下載testpic.jpg</a>
+<a th:href="@{/testDown}">下載testpic.jpg</a><br>
+<form th:action="@{/testUp}" method="post" enctype="multipart/form-data">
+    圖片<input type="file" name="photo">
+    <input type="submit" value="上傳">
+</form>
 </body>
 </html>

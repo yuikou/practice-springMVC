@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
@@ -40,5 +41,12 @@ public class FileController {
         input.close();
 
         return re;
+    }
+
+    @RequestMapping("/testUp")
+    public String testUp(MultipartFile photo){
+
+        System.out.println(photo.getOriginalFilename());
+        return "success";
     }
 }
