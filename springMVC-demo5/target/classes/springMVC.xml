@@ -41,13 +41,15 @@
 
     <!--    配置攔截器-->
     <mvc:interceptors>
+        <ref bean="firstInterceptor" />
+        <ref bean="secondInterceptor" />
         <!--  以下兩種配置方式都是對DispatcherServlet所處理的所有請求進行攔截  -->
 <!--        <bean class="com.atguigu.mvc.interceptor.FirstInterceptor"></bean>-->
 <!--        <ref bean="firstInterceptor" />-->
-        <mvc:interceptor>
-            <mvc:mapping path="/**"/>
-            <mvc:exclude-mapping path="/"/>
-            <ref bean="firstInterceptor" />
-        </mvc:interceptor>
+<!--        <mvc:interceptor>-->
+<!--           <mvc:mapping path="/**"/>            &lt;!&ndash; 需要攔截的請求 &ndash;&gt;-->
+<!--            <mvc:exclude-mapping path="/"/>     &lt;!&ndash; 不需要攔截的請求 &ndash;&gt;-->
+<!--            <ref bean="firstInterceptor" />-->
+<!--        </mvc:interceptor>-->
     </mvc:interceptors>
 </beans>
