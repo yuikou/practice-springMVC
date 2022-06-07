@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 public class SecondInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         System.out.println("second intercepotor, preHandle");
-        return false;
+        return true;
     }
 
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
