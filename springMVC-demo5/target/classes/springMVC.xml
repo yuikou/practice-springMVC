@@ -52,4 +52,21 @@
 <!--            <ref bean="firstInterceptor" />-->
 <!--        </mvc:interceptor>-->
     </mvc:interceptors>
+
+<!--   配置異常處理器  -->
+<!--
+    配置異常映射attribute "exceptionMappings" 類型為properties
+    key:value(controller執行過程中出現的異常:view名稱)
+    tag之間直接寫遇到指定的error時, 要跳轉的view檔案名稱, 因為試圖跳轉會走已配置的thymeleaf規則
+-->
+<!--    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">-->
+<!--        <property name="exceptionMappings">-->
+<!--            <props>-->
+<!--                <prop key="java.lang.ArithmeticException">error</prop>-->
+<!--            </props>-->
+<!--        </property>-->
+<!--&lt;!&ndash;        設置顯示exception訊息的key, 預設儲存在request scope&ndash;&gt;-->
+<!--        <property name="exceptionAttribute" value="ex"></property>-->
+<!--    </bean>-->
+
 </beans>
